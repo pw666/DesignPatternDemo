@@ -1,6 +1,7 @@
 package com.wp.pattern;
 
 import com.wp.pattern.behaviour.StrategyPattern.SalesMan;
+import com.wp.pattern.struct.DecoratorPattern.*;
 
 /**
  * @author pan.wu
@@ -11,7 +12,26 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("策略模式测试>>>>>>>>");
         StrategyPatternTest();
+        System.out.println("装饰器模式测试>>>>>>>>");
+        decoratorPattern();
         //...
+    }
+
+    public static void decoratorPattern() {
+
+        Shape circle = new Circle();
+        ShapeDecorator redCircle = new RedShapeDecorator(new Circle());
+        ShapeDecorator redRectangle = new RedShapeDecorator(new Rectangle());
+        //Shape redCircle = new RedShapeDecorator(new Circle());
+        //Shape redRectangle = new RedShapeDecorator(new Rectangle());
+        System.out.println("Circle with normal border");
+        circle.draw();
+
+        System.out.println("\nCircle of red border");
+        redCircle.draw();
+
+        System.out.println("\nRectangle of red border");
+        redRectangle.draw();
     }
 
     /**
